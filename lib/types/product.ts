@@ -15,6 +15,7 @@ export type ProductBadge     = "Best Seller" | "New Arrival" | "Handloom" | "Fes
 
 export interface ProductImage {
   id: string;
+  src: string;    // real image URL (Unsplash or /public path)
   alt: string;
   color?: string; // swatch label
 }
@@ -61,4 +62,5 @@ export interface RelatedProduct {
   originalPrice?: number;
   badge?: ProductBadge;
   inStock: boolean;
+  image?: string;
 }

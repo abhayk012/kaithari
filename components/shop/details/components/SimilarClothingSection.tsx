@@ -1,4 +1,5 @@
 import type { RelatedProduct } from "@/lib/types/product";
+import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -43,18 +44,28 @@ function SimilarProductCard({
       aria-label={`View ${product.name}`}
     >
       <div className="overflow-hidden rounded-sm border border-[#E8DFC8] bg-white transition-shadow duration-300 hover:shadow-md">
-        {/* Image placeholder */}
+        {/* Image */}
         <div
           className="relative flex aspect-[3/4] items-center justify-center overflow-hidden"
           style={{ backgroundColor: bgColor }}
         >
-          <div className="flex flex-col items-center gap-2 opacity-50">
-            <div className="h-px w-10 bg-[#C9A84C]" />
-            <span className="font-heading text-xs uppercase tracking-widest text-[#5C3D1E]">
-              {product.category}
-            </span>
-            <div className="h-px w-10 bg-[#C9A84C]" />
-          </div>
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-2 opacity-50">
+              <div className="h-px w-10 bg-[#C9A84C]" />
+              <span className="font-heading text-xs uppercase tracking-widest text-[#5C3D1E]">
+                {product.category}
+              </span>
+              <div className="h-px w-10 bg-[#C9A84C]" />
+            </div>
+          )}
           {product.badge && (
             <Badge
               className={`absolute left-2.5 top-2.5 border-0 text-[10px] font-medium ${
@@ -97,11 +108,8 @@ function SimilarProductCard({
               </span>
             )}
           </div>
-          <Button
-            asChild
-            className="mt-3 w-full rounded-none bg-[#2C2416] py-2 font-body text-[10px] tracking-widest text-[#FAF7F0] uppercase hover:bg-[#5C3D1E] transition-colors duration-200 h-auto"
-          >
-            <Link href={`/shop/${product.slug}`}>View Details</Link>
+          <Button className="mt-3 w-full rounded-none bg-[#2C2416] py-2 font-body text-[10px] tracking-widest text-[#FAF7F0] uppercase hover:bg-[#5C3D1E] transition-colors duration-200 h-auto">
+            View Details
           </Button>
         </div>
       </div>

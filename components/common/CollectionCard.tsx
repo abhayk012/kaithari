@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface CollectionCardProps {
@@ -10,23 +11,23 @@ interface CollectionCardProps {
 export default function CollectionCard({
   title,
   description,
+  image,
   href = "#",
 }: CollectionCardProps) {
   return (
     <Link href={href} className="group block" aria-label={`Browse ${title}`}>
-      <div className="relative overflow-hidden rounded-md border border-[#E8DFC8] bg-[#F5EFE0] transition-all duration-300 hover:shadow-md hover:border-[#C9A84C]">
-        {/* Decorative fabric placeholder */}
-        <div className="flex aspect-[4/3] items-center justify-center">
-          <div className="flex flex-col items-center gap-3">
-            <div className="h-px w-20 bg-[#C9A84C]" />
-            <span
-              className="font-heading text-2xl font-semibold text-[#2C2416] transition-colors duration-200 group-hover:text-[#5C3D1E]"
-              aria-hidden="true"
-            >
-              {title.charAt(0)}
-            </span>
-            <div className="h-px w-20 bg-[#C9A84C]" />
-          </div>
+      <div className="relative overflow-hidden rounded-sm border border-[#E8DFC8] bg-[#F5EFE0] transition-all duration-300 hover:shadow-md hover:border-[#C9A84C]">
+        {/* Image */}
+        <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          {/* Subtle dark overlay on hover */}
+          <div className="absolute inset-0 bg-[#2C2416]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
         {/* Label */}

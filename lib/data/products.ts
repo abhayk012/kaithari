@@ -8,22 +8,10 @@ export type ProductCategory =
   | "Set Mundu"
   | "Wedding Collection";
 
-export type ProductFabric = "Cotton" | "Fine Cotton" | "Handloom Cotton";
-
-export type BorderStyle =
-  | "Plain Border"
-  | "Kasavu Border"
-  | "Colored Border"
-  | "Temple Border";
-
-export type Occasion =
-  | "Wedding"
-  | "Onam"
-  | "Temple"
-  | "Daily Wear"
-  | "Gifting";
-
-export type ProductBadge = "Best Seller" | "New Arrival" | "Handloom" | "Festival Pick";
+export type ProductFabric    = "Cotton" | "Fine Cotton" | "Handloom Cotton";
+export type BorderStyle      = "Plain Border" | "Kasavu Border" | "Colored Border" | "Temple Border";
+export type Occasion         = "Wedding" | "Onam" | "Temple" | "Daily Wear" | "Gifting";
+export type ProductBadge     = "Best Seller" | "New Arrival" | "Handloom" | "Festival Pick";
 
 export interface Product {
   id: string;
@@ -42,7 +30,7 @@ export interface Product {
   featured: boolean;
 }
 
-// ─── Mock Products ────────────────────────────────────────────────────────────
+// ─── Mock Products ─────────────────────────────────────────────────────────
 
 export const PRODUCTS: Product[] = [
   {
@@ -56,7 +44,7 @@ export const PRODUCTS: Product[] = [
     occasion: ["Onam", "Temple", "Daily Wear"],
     price: 850,
     originalPrice: 1100,
-    image: "/images/products/kasavu-single.jpg",
+    image: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&auto=format&fit=crop&q=80",
     badge: "Best Seller",
     inStock: true,
     featured: true,
@@ -71,7 +59,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Kasavu Border",
     occasion: ["Wedding", "Onam"],
     price: 2200,
-    image: "/images/products/wedding-double.jpg",
+    image: "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?w=600&auto=format&fit=crop&q=80",
     badge: "New Arrival",
     inStock: true,
     featured: true,
@@ -87,7 +75,7 @@ export const PRODUCTS: Product[] = [
     occasion: ["Wedding", "Onam", "Temple"],
     price: 1450,
     originalPrice: 1800,
-    image: "/images/products/set-mundu.jpg",
+    image: "https://images.unsplash.com/photo-1596040033229-e4f6e2e5e39a?w=600&auto=format&fit=crop&q=80",
     badge: "Festival Pick",
     inStock: true,
     featured: true,
@@ -102,7 +90,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Plain Border",
     occasion: ["Daily Wear", "Temple"],
     price: 1250,
-    image: "/images/products/fine-handloom.jpg",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
     badge: "Handloom",
     inStock: true,
     featured: false,
@@ -117,7 +105,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Plain Border",
     occasion: ["Daily Wear", "Temple"],
     price: 450,
-    image: "/images/products/plain-single.jpg",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80",
     inStock: true,
     featured: false,
   },
@@ -132,7 +120,7 @@ export const PRODUCTS: Product[] = [
     occasion: ["Temple", "Onam"],
     price: 1650,
     originalPrice: 1900,
-    image: "/images/products/temple-double.jpg",
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=80",
     badge: "Best Seller",
     inStock: true,
     featured: true,
@@ -147,7 +135,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Kasavu Border",
     occasion: ["Gifting", "Onam"],
     price: 1800,
-    image: "/images/products/gifting-set.jpg",
+    image: "https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=600&auto=format&fit=crop&q=80",
     badge: "New Arrival",
     inStock: true,
     featured: false,
@@ -162,7 +150,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Colored Border",
     occasion: ["Onam", "Daily Wear"],
     price: 950,
-    image: "/images/products/colored-kasavu.jpg",
+    image: "https://images.unsplash.com/photo-1620835058400-b4f60c7f8742?w=600&auto=format&fit=crop&q=80",
     inStock: true,
     featured: false,
   },
@@ -177,7 +165,7 @@ export const PRODUCTS: Product[] = [
     occasion: ["Daily Wear"],
     price: 750,
     originalPrice: 900,
-    image: "/images/products/ultra-fine-single.jpg",
+    image: "https://images.unsplash.com/photo-1582719471384-894febb09b00?w=600&auto=format&fit=crop&q=80",
     inStock: false,
     featured: false,
   },
@@ -191,7 +179,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Kasavu Border",
     occasion: ["Wedding"],
     price: 3500,
-    image: "/images/products/bridal-kasavu.jpg",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&auto=format&fit=crop&q=80",
     badge: "Best Seller",
     inStock: true,
     featured: true,
@@ -206,7 +194,7 @@ export const PRODUCTS: Product[] = [
     borderStyle: "Plain Border",
     occasion: ["Daily Wear", "Temple"],
     price: 850,
-    image: "/images/products/double-plain.jpg",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80",
     inStock: true,
     featured: false,
   },
@@ -221,7 +209,7 @@ export const PRODUCTS: Product[] = [
     occasion: ["Onam", "Temple"],
     price: 1600,
     originalPrice: 2000,
-    image: "/images/products/onam-set.jpg",
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=80",
     badge: "Festival Pick",
     inStock: true,
     featured: true,

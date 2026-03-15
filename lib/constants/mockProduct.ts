@@ -69,6 +69,7 @@ export const RELATED_PRODUCTS: RelatedProduct[] = [
     originalPrice: 1900,
     badge: "Best Seller",
     inStock: true,
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "rp2",
@@ -80,6 +81,7 @@ export const RELATED_PRODUCTS: RelatedProduct[] = [
     originalPrice: 1800,
     badge: "Festival Pick",
     inStock: true,
+    image: "https://images.unsplash.com/photo-1596040033229-e4f6e2e5e39a?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "rp3",
@@ -91,6 +93,7 @@ export const RELATED_PRODUCTS: RelatedProduct[] = [
     originalPrice: 2000,
     badge: "Festival Pick",
     inStock: true,
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "rp4",
@@ -101,6 +104,7 @@ export const RELATED_PRODUCTS: RelatedProduct[] = [
     price: 1250,
     badge: "Handloom",
     inStock: true,
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -120,23 +124,43 @@ export const MOCK_PRODUCT: ProductDetail = {
   price: 850,
   originalPrice: 1100,
   images: [
-    { id: "img1", alt: "Pure Kasavu Single Dhoti — front view",  color: "White & Gold" },
-    { id: "img2", alt: "Kasavu border close-up — rich gold weave", color: "Border Detail" },
-    { id: "img3", alt: "Fabric texture — fine handloom cotton",    color: "Fabric" },
-    { id: "img4", alt: "Draped view — full length",                color: "Draped" },
+    {
+      id: "img1",
+      src: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&auto=format&fit=crop&q=85",
+      alt: "Pure Kasavu Single Dhoti — front view",
+      color: "White & Gold",
+    },
+    {
+      id: "img2",
+      src: "https://images.unsplash.com/photo-1596040033229-e4f6e2e5e39a?w=800&auto=format&fit=crop&q=85",
+      alt: "Kasavu border close-up — rich gold weave",
+      color: "Border Detail",
+    },
+    {
+      id: "img3",
+      src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&auto=format&fit=crop&q=85",
+      alt: "Fabric texture — fine handloom cotton",
+      color: "Fabric",
+    },
+    {
+      id: "img4",
+      src: "https://images.unsplash.com/photo-1519181245277-cffeb31da2e3?w=800&auto=format&fit=crop&q=85",
+      alt: "Draped view — full length",
+      color: "Draped",
+    },
   ],
   badge: "Best Seller",
   inStock: true,
   featured: true,
   details: [
-    { label: "Fabric",       value: "100% Pure Cotton"            },
-    { label: "Weave",        value: "Handloom Pit-Loom"           },
-    { label: "Border",       value: "Traditional Kasavu (Zari)"   },
-    { label: "Length",       value: "2 yards (Single)"            },
-    { label: "Width",        value: "54 inches"                   },
-    { label: "Weight",       value: "Approx. 180 GSM"             },
-    { label: "Origin",       value: "Thrissur, Kerala"            },
-    { label: "Certification",value: "Handloom Mark Certified"     },
+    { label: "Fabric",        value: "100% Pure Cotton"           },
+    { label: "Weave",         value: "Handloom Pit-Loom"          },
+    { label: "Border",        value: "Traditional Kasavu (Zari)"  },
+    { label: "Length",        value: "2 yards (Single)"           },
+    { label: "Width",         value: "54 inches"                  },
+    { label: "Weight",        value: "Approx. 180 GSM"            },
+    { label: "Origin",        value: "Thrissur, Kerala"           },
+    { label: "Certification", value: "Handloom Mark Certified"    },
   ],
   washCare: [
     "Gentle hand wash in cold water with mild detergent.",

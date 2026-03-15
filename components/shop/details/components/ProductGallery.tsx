@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { ProductImage } from "@/lib/types/product";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -18,43 +19,26 @@ export default function ProductGallery({
   const prev = () => setActive((i) => (i === 0 ? images.length - 1 : i - 1));
   const next = () => setActive((i) => (i === images.length - 1 ? 0 : i + 1));
 
-  const IMAGE_BG: Record<number, string> = {
-    0: "#F0EBD8",
-    1: "#E8D8C0",
-    2: "#EEE4D0",
-    3: "#F5EFE0",
-  };
-
   return (
     <div className="flex flex-col gap-3">
       {/* Main image */}
-      <div className="relative overflow-hidden rounded-sm bg-[#F5EFE0] aspect-[4/5]">
-        {/* Decorative panel */}
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-center gap-4 transition-colors duration-300"
-          style={{ backgroundColor: IMAGE_BG[active] ?? "#F5EFE0" }}
-        >
-          {/* Kasavu accent strips */}
-          <div className="absolute left-0 top-0 h-full w-2 bg-[#C9A84C]/60" />
-          <div className="absolute right-0 top-0 h-full w-2 bg-[#C9A84C]/60" />
+      <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#F5EFE0]">
+        <Image
+          key={images[active]?.id}
+          src={
+            images[active]?.src ??
+            "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&auto=format&fit=crop&q=85"
+          }
+          alt={images[active]?.alt ?? productName}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-opacity duration-300"
+          priority={active === 0}
+        />
 
-          <div className="flex flex-col items-center gap-3 px-8 text-center">
-            <div className="h-px w-16 bg-[#C9A84C]" />
-            <span
-              className="font-heading text-7xl font-light text-[#2C2416]/8 select-none"
-              aria-hidden="true"
-            >
-              ക
-            </span>
-            <p className="font-heading text-lg font-medium italic text-[#5C3D1E]">
-              {productName}
-            </p>
-            <span className="font-body text-xs tracking-[0.2em] text-[#C9A84C] uppercase">
-              {images[active]?.color ?? "Handloom"}
-            </span>
-            <div className="h-px w-16 bg-[#C9A84C]" />
-          </div>
-        </div>
+        {/* Kasavu accent strips */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-2 bg-[#C9A84C]/40" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-2 bg-[#C9A84C]/40" />
 
         {/* Nav arrows */}
         {images.length > 1 && (
@@ -76,9 +60,9 @@ export default function ProductGallery({
           </>
         )}
 
-        {/* Image counter */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2">
-          <span className="font-body text-xs text-[#7A6A52]">
+        {/* Counter */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-[#2C2416]/40 px-2.5 py-0.5">
+          <span className="font-body text-[10px] text-[#FAF7F0]">
             {active + 1} / {images.length}
           </span>
         </div>
@@ -92,18 +76,19 @@ export default function ProductGallery({
               key={img.id}
               onClick={() => setActive(i)}
               aria-label={img.alt}
-              className={`relative overflow-hidden rounded-sm aspect-square transition-all duration-200 ${
+              className={`relative aspect-square overflow-hidden rounded-sm transition-all duration-200 ${
                 active === i
                   ? "ring-2 ring-[#C9A84C] ring-offset-1"
-                  : "border border-[#E8DFC8] hover:border-[#C9A84C]"
+                  : "border border-[#E8DFC8] hover:border-[#C9A84C] opacity-70 hover:opacity-100"
               }`}
-              style={{ backgroundColor: IMAGE_BG[i] ?? "#F5EFE0" }}
             >
-              <div className="flex h-full items-center justify-center">
-                <span className="font-body text-[9px] tracking-widest text-[#7A6A52] uppercase px-1 text-center">
-                  {img.color}
-                </span>
-              </div>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                sizes="80px"
+                className="object-cover"
+              />
             </button>
           ))}
         </div>
